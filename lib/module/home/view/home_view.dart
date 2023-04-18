@@ -13,6 +13,7 @@ class HomeView extends GetView<HomeController> {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
+        title: Text('krishi Vikas'),
         systemOverlayStyle:
             const SystemUiOverlayStyle(statusBarColor: AppColor.baseColor),
         backgroundColor: AppColor.baseColor,
@@ -20,6 +21,7 @@ class HomeView extends GetView<HomeController> {
       ),
       bottomNavigationBar: BottomAppBar(
         color: AppColor.baseColor,
+        shape: CircularNotchedRectangle(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -45,7 +47,7 @@ class HomeView extends GetView<HomeController> {
       ),
       floatingActionButton: FloatingActionButton(
         elevation: 6,
-        backgroundColor: Colors.red,
+        backgroundColor: AppColor.redColor,
         foregroundColor: Colors.white,
         child: Container(
           decoration: BoxDecoration(
@@ -53,7 +55,7 @@ class HomeView extends GetView<HomeController> {
               border: Border.all(color: Colors.white, width: 2)),
           child: Icon(
             Icons.add,
-            size: 24,
+            size: 28,
           ).paddingAll(10),
         ),
         onPressed: () {},
@@ -101,44 +103,49 @@ class HomeView extends GetView<HomeController> {
           ),
           SizedBox(height: 35),
           Text(
-            'Tractor',
-            style: TextStyle(
+            'tractor'.tr,
+            style: const TextStyle(
                 fontWeight: FontWeight.bold, color: AppColor.baseColor),
           ).paddingSymmetric(horizontal: 20),
           Expanded(
-            child: Column(
-              children: [
-                // Add any other widgets above the TabBar
-                Expanded(
-                  child: DefaultTabController(
-                    length: 3,
-                    child: Column(
+            child: DefaultTabController(
+              length: 3,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TabBar(
+                        isScrollable: true,
+                        unselectedLabelColor: Colors.grey,
+                        indicatorColor: Colors.black,
+                        labelColor: Colors.black,
+                        tabs: [
+                          Tab(text: 'rent'.tr),
+                          Tab(text: 'used'.tr),
+                          Tab(text: 'new'.tr),
+                        ],
+                      ).paddingSymmetric(horizontal: 20),
+                      ColoredBox(
+                        color: AppColor.baseColor,
+                        child: Text(
+                          'viewAll'.tr,
+                          style: TextStyle(fontSize: 12, color: Colors.white),
+                        ).paddingAll(4),
+                      ).paddingOnly(right: 20)
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
                       children: [
-                        TabBar(
-                          unselectedLabelColor: Colors.grey,
-                          indicatorColor: Colors.black,
-                          labelColor: Colors.black,
-                          tabs: [
-                            Tab(text: 'RENT'),
-                            Tab(text: 'USED'),
-                            Tab(text: 'NEW'),
-                          ],
-                        ),
-                        Expanded(
-                          child: TabBarView(
-                            children: [
-                              Center(child: Text(' Rent Tab')),
-                              Center(child: Text('Used Tab')),
-                              Center(child: Text('New Tab')),
-                            ],
-                          ),
-                        ),
+                        Center(child: Text('rentTab'.tr)),
+                        Center(child: Text('usedTab'.tr)),
+                        Center(child: Text('newTab'.tr)),
                       ],
                     ),
                   ),
-                ),
-                // Add any other widgets below the TabBar
-              ],
+                ],
+              ),
             ),
           ),
         ],

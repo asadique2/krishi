@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:krishi_vikas/module/home/view/home_view.dart';
+import 'package:krishi_vikas/constant/languages.dart';
 import 'package:krishi_vikas/module/home/view/language_selection_view.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,6 +11,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Flutter Demo',
+      translations: Languages(),
+      fallbackLocale: Locale('en', 'US'),
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

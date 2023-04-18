@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:krishi_vikas/model/category_response.dart';
 import 'package:krishi_vikas/module/home/view/home_view.dart';
-import 'package:krishi_vikas/tabs/rent_tab.dart';
 
 class HomeController extends GetxController
     with GetSingleTickerProviderStateMixin {

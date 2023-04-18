@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:krishi_vikas/constant/color.dart';
 import 'package:krishi_vikas/module/home/controller/home_controller.dart';
-import 'package:krishi_vikas/module/home/view/home_view.dart';
 
 class LanguageSelectionView extends GetView<HomeController> {
   const LanguageSelectionView({Key? key}) : super(key: key);
@@ -35,6 +34,17 @@ class LanguageSelectionView extends GetView<HomeController> {
                   return Card(
                     child: InkWell(
                       onTap: () {
+                        if (controller.languageList[index].englishName ==
+                            'english') {
+                          Get.updateLocale(const Locale('en', 'US'));
+                        } else if (controller.languageList[index].englishName ==
+                            'hindi') {
+                          Get.updateLocale(const Locale('hi', 'IN'));
+                        } else if (controller.languageList[index].englishName ==
+                            'bengali') {
+                          Get.updateLocale(const Locale('bn', 'BD'));
+                        }
+
                         controller.changeLanguage(
                             language:
                                 controller.languageList[index].englishName);
@@ -50,10 +60,10 @@ class LanguageSelectionView extends GetView<HomeController> {
                                   fontSize: 70,
                                   color: Colors.redAccent),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               controller.languageList[index].nativeName,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
